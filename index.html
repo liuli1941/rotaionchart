@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style>
+            .rota-hide {
+                display: none;
+            }
+            .rota-menu-content {
+                height: 100px;
+                border: 1px solid red;
+            }
+            .rota-item {
+                /*display: inline-block;*/
+                /*opacity: 0.6;*/
+                filter: grayscale(100%);
+            }
+            .rota-item.rota-highlight {
+                filter: initial;
+                /*opacity: 1;*/
+            }
+            .rota-item.rota-highlight img {
+                width: 150px;
+                height: 150px;
+            }
+            img {
+                /*transition 这个 css 指定了某个属性发生变化的时候自动使用动画效果和动画时间*/
+                transition: width 1s, height 1s;
+            }
+            .rota-item img {
+                width: 100px;
+                height: 100px;
+            }
+
+            /*3. 轮播图*/
+            .rota-slide {
+                position: relative;
+                width: 800px;
+            }
+            .rota-slide-image {
+                display: none;
+            }
+            /*rota-slide-image*/
+            .rota-active {
+                display: inline-block;
+            }
+            .rota-slide-button {
+                width: 30px;
+                height: 50px;
+                color: #fff;
+                background: #000;
+                opacity: 0.3;
+                border: 0;
+                outline: 0;
+                cursor: pointer;
+            }
+            .rota-slide-left {
+                left: 0;
+            }
+            .rota-slide-right {
+                right: 0;
+            }
+            .rota-vertical-center {
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            .rota-slide-indicators {
+                position: absolute;
+                bottom: 10px;
+                width: 100%;
+                text-align: center;
+            }
+            .rota-slide-indi {
+                display: inline-block;
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                background: red;
+            }
+            .rota-white {
+                background: white;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- 轮播图 -->
+        <div class="rota-3">
+
+            <div class="rota-slide" data-imgs="3" data-active="0">
+                <img id="id-rotaimage-0" class="rota-slide-image rota-active" src="https://musicbox-1256271939.cos.ap-guangzhou.myqcloud.com/1.png" alt="">
+                <img id="id-rotaimage-1" class="rota-slide-image" src="https://musicbox-1256271939.cos.ap-guangzhou.myqcloud.com/2.png" alt="">
+                <img id="id-rotaimage-2" class="rota-slide-image" src="https://musicbox-1256271939.cos.ap-guangzhou.myqcloud.com/3.png" alt="">
+
+                <button class="rota-slide-button rota-slide-left rota-vertical-center"
+                        data-offset="-1">
+                    &lt;
+                </button>
+                <button class="rota-slide-button rota-slide-right rota-vertical-center"
+                        data-offset="1">
+                    &gt;
+                </button>
+                <div class="rota-slide-indicators">
+                    <div id="id-indi-0" data-index="0" class="rota-slide-indi rota-white"></div>
+                    <div id="id-indi-1" data-index="1" class="rota-slide-indi"></div>
+                    <div id="id-indi-2" data-index="2" class="rota-slide-indi"></div>
+                </div>
+            </div>
+        </div>
+        <script src="util.js"></script>
+        <script src="index.js"></script>
+    </body>
+</html>
